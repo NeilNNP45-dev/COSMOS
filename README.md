@@ -12,14 +12,14 @@ The primary objective of COSMOS is not simply to build software, but to document
 
 ---
 
-## 🚀 Current Status
+## Current Status
 
-| Item              | Status                    |
-| ----------------- | ------------------------- |
-| Version           | v0.1.0                    |
-| Development Stage | Repository Initialization |
-| Active Module     | Orbit Simulator           |
-| Progress          | 🟡 Planning               |
+| Item | Status |
+|---|---|
+| **Version** | `v0.2.0` |
+| **Development Stage** | Modular Engine Development |
+| **Active Module** | Orbit Simulator |
+| **Progress** | 🟢 In Development |
 
 ---
 
