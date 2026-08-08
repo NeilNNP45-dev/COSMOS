@@ -16,10 +16,8 @@ COSMOS/
 │
 ├── engine/                      # Shared engine used by every module
 │   ├── physics/                 # Physics systems & numerical methods
-│   ├── rendering/               # Rendering & visualization
+│   ├── graphics/               # Rendering & visualization
 │   ├── simulation/              # Simulation framework
-│   ├── data/                    # Shared data management
-│   ├── ui/                      # Reusable interface components
 │   ├── utilities/               # Helper utilities
 │   └── __init__.py
 │

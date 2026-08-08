@@ -9,7 +9,7 @@ Project: COSMOS
 """
 
 # Gravitational Constant
-G = 1.0
+G = 0.00297555
 
 
 # Default Simulation Settings

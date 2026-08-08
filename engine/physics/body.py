@@ -36,14 +36,18 @@ class Body:
     # Motion
     position: pygame.Vector2
     velocity: pygame.Vector2
-    acceleration: pygame.Vector2 = field(default_factory=pygame.Vector2)
 
     # Visuals
     color: tuple[int, int, int]
 
+    # Acceleration
+    acceleration: pygame.Vector2 = field(default_factory=pygame.Vector2)
+
+    
+
     # Rendering
     trail: list[pygame.Vector2] = field(default_factory=list)
-    max_trail_length: int = 500
+    max_trail_length: int = 2000
 
     @property
     def speed(self) -> float:
