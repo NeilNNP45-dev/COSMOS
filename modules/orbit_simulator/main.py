@@ -11,6 +11,7 @@ import pygame
 
 from engine.physics.body import Body
 from engine.physics.integrators import VelocityVerletIntegrator
+from engine.physics.energy import calculate_total_energy
 
 from engine.graphics.colors import SpaceColors
 from engine.graphics.camera import Camera
@@ -331,6 +332,7 @@ while running:
     # and trail updates for the active bodies.
     if not paused:
         integrator.step(bodies, sim_dt)
+        total_energy = calculate_total_energy(bodies)
 
 
     # ----------------------------------------------
@@ -354,6 +356,7 @@ while running:
     hud.set("Bodies", len(bodies))
     hud.set("Zoom", f"{camera.zoom:.2f}x")
     hud.set("Time Scale", f"{time_scale}x")
+    hud.set("Total Energy", f"{total_energy:.4f}")
     hud.set(
         "State",
         "ZA WARUDO (Paused)" if paused else "Running",
