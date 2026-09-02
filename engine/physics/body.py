@@ -47,7 +47,7 @@ class Body:
 
     # Rendering
     trail: list[pygame.Vector2] = field(default_factory=list)
-    max_trail_length: int = 2000
+    max_trail_length: int = 100
 
     @property
     def speed(self) -> float:
