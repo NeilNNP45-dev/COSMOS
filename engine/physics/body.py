@@ -47,7 +47,11 @@ class Body:
 
     # Rendering
     trail: list[pygame.Vector2] = field(default_factory=list)
-    max_trail_length: int = 100
+    # Trail distances are measured in million kilometres.
+    trail_spacing: float = 0.1
+    max_trail_distance: float = 100.0
+    # Total physical distance currently represented by the trail.
+    trail_distance: float = 0.0
 
     @property
     def speed(self) -> float:
@@ -55,16 +59,29 @@ class Body:
         return self.velocity.length()
 
     
-    def add_trail_point(self) -> None:
-        """
-        Adds the current position to the body's trail.
-        """
+    def update_trail(self) -> None:
+     """
+     Updates the body's trail using physical distance.
+     """
 
+     if not self.trail:
         self.trail.append(self.position.copy())
+        return
 
-        if len(self.trail) > self.max_trail_length:
-            self.trail.pop(0)
+     distance = self.position.distance_to(self.trail[-1])
 
+     if distance < self.trail_spacing:
+        return
+
+     self.trail.append(self.position.copy())
+     self.trail_distance += distance
+
+     while self.trail_distance > self.max_trail_distance:
+           removed_distance = self.trail[0].distance_to(self.trail[1])
+
+           self.trail_distance -= removed_distance
+
+           self.trail.pop(0)
 
     def clear_trail(self) -> None:
         """
@@ -72,7 +89,7 @@ class Body:
         """
 
         self.trail.clear()
-
+        self.trail_distance = 0.0
 
     def reset_acceleration(self) -> None:
         """

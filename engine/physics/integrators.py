@@ -41,7 +41,7 @@ class EulerIntegrator(Integrator):
             body.velocity += body.acceleration * dt
             body.position += body.velocity * dt
 
-            body.add_trail_point()
+            body.update_trail()
 
 
 class VelocityVerletIntegrator(Integrator):
@@ -73,7 +73,7 @@ class VelocityVerletIntegrator(Integrator):
                 0.5 * (previous + body.acceleration) * dt
             )
 
-            body.add_trail_point()
+            body.update_trail()
 
 
 class RK4Integrator(Integrator):
